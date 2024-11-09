@@ -1,19 +1,12 @@
 import {News} from "./NewsCardFlexContainer.tsx";
-import {useState} from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import {Card, CardContent, CardFooter, CardHeader, CardTitle,} from "@/components/ui/card"
 import {Separator} from "@/components/ui/separator.tsx";
 import {Badge} from "@/components/ui/badge.tsx";
 
 
 export default function NewsCard({news}: { news: News }) {
-    const {id, title, source, url, timestamp, bias, bulletPoints} = news;
+    const {id, title, source,bulletPoints} = news;
+    // const {id, title, source, url, timestamp, bias, bulletPoints} = news;
 
     return (
         <Card className="max-w-80">

@@ -9,7 +9,7 @@ import React, {useEffect, useState} from "react";
 
 function App() {
 
-    const [isFetching, setIsFetching] = useState(true)
+    // const [isFetching, setIsFetching] = useState(true)
     const [newsList, setNewsList] = useState<News[]>([])
     const [filteredNewsList, setFilteredNewsLIst] = useState<News[]>([])
     // const [searchTerm, setSearchTerm] = useState("");
@@ -22,7 +22,7 @@ function App() {
             .then((data) => {
                 setNewsList(data);
                 setFilteredNewsLIst(data)
-                setIsFetching(false);
+                // setIsFetching(false);
                 console.log(data[0]);
             })
     }, []);
