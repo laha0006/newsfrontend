@@ -19,25 +19,15 @@ export interface News {
 
 }
 
-export default function NewsCardFlexContainer() {
-    const [isFetching, setIsFetching] = useState(true)
-    const [newsList,setNewsList] = useState<News[]>([])
-    useEffect(() => {
-        fetch("http://localhost:8080/api/v1/news")
-            .then((res) => {
-                return res.json()
-            })
-            .then((data) => {setNewsList(data); setIsFetching(false); console.log(data[0]); })
-    }, []);
+export default function NewsCardFlexContainer({newsList} : {newsList: News[]}) {
+
 
 
     return <>
         <div className="flex flex-wrap gap-4 justify-center p-1">
-            {isFetching ? <p className="text-4xl font-bold">Laoding</p> :
-                newsList.map(item => (
+            {newsList.map(item => (
                     <NewsCard key={item.id} news={item} />
-                )
-            )}
+                ))}
         </div>
     </>;
 }

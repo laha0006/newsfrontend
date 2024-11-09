@@ -1,25 +1,36 @@
 import {News} from "./NewsCardFlexContainer.tsx";
 import {useState} from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import {Separator} from "@/components/ui/separator.tsx";
+import {Badge} from "@/components/ui/badge.tsx";
 
 
 export default function NewsCard({news}: { news: News }) {
     const {id, title, source, url, timestamp, bias, bulletPoints} = news;
-    const [isExpanded, setIsExpanded] = useState(false); // State to track if the card is expanded
 
-    // Toggle the expansion state when the card is clicked
-    const handleCardClick = () => {
-        setIsExpanded((prevState) => !prevState);
-    };
     return (
-        <div onClick={handleCardClick} className="flex-auto max-w-[300px] p-2 dark bg-card" key={news.id}>
-            <div className="text-sm font-news dark text-card-foreground">{title}</div>
-            {isExpanded ? (
-                <ul>
-                    {bulletPoints.map(b => (
-                        <p className="py-1"> • {b.bulletPoint} </p>
-                    ) )}
-                </ul>
-            ) : ""}
-        </div>
+        <Card className="max-w-80">
+            <CardHeader>
+                <CardTitle className="mb-2">{title}</CardTitle>
+                <Separator/>
+            </CardHeader>
+
+            <CardContent>
+
+                {bulletPoints.map(item => (
+                    <p key={item.id} className="border rounded my-1 p-2">{item.bulletPoint}</p>
+                ) )}
+            </CardContent>
+            <CardFooter>
+                <Badge variant="outline">{source === "DR" ? "DR" : "Politiken"}</Badge>
+            </CardFooter>
+        </Card>
     );
 }
