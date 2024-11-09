@@ -11,8 +11,8 @@ export default function NewsCard({news}: { news: News }) {
         setIsExpanded((prevState) => !prevState);
     };
     return (
-        <div onClick={handleCardClick} className="flex-auto max-w-[300px] p-2 bg-gray-900" key={news.id}>
-            <div className="text-sm font-news">{title}</div>
+        <div onClick={handleCardClick} className="flex-auto max-w-[300px] p-2 dark bg-card" key={news.id}>
+            <div className="text-sm font-news dark text-card-foreground">{title}</div>
             {isExpanded ? (
                 <ul>
                     {bulletPoints.map(b => (
