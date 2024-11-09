@@ -5,3 +5,7 @@
   text-align: center;
 }
 
+.theBackground {
+  background-image: url('../public/theBackgroundMaybe.webp');
+  min-height: 100vh;
+}

@@ -4,7 +4,7 @@ import NewsCardFlexContainer, {News} from "./NewsCardFlexContainer.tsx";
 import {ThemeProvider} from "@/components/theme-provider.tsx";
 import {Separator} from "@/components/ui/separator.tsx";
 import {Input} from "@/components/ui/input.tsx";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
 
 function App() {
@@ -28,8 +28,8 @@ function App() {
     }, []);
 
 
-    const handleInputChange = (event) => {
-        const value : string = event.target.value;
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value : string = e.target.value;
         console.log("value: ", value)
         console.log("searchTerm: ", )
         console.log("newsList length: ", newsList.length)
@@ -50,7 +50,7 @@ function App() {
                     Kort Fortalt
                 </h1>
                 <Separator decorative={true}/>
-                <div className="mt-5">
+                <div className="theBackground opacity-15">
                     <Input className="text-center" placeholder="søg" onChange={handleInputChange}/>
                     <NewsCardFlexContainer newsList={filteredNewsList}/>
                 </div>
