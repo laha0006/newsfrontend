@@ -18,6 +18,7 @@ echo "Starting push script..."
 # Step 1: Build the Vite project
 echo "Running Vite build..."
 npm run build || { echo "Vite build failed"; exit 1; }
+#vite build || { echo "Vite build failed"; exit 1; }
 
 # Step 2: Build the Docker image
 echo "Building Docker image..."

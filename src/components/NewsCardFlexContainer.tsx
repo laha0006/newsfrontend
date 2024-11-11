@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+// import {useEffect, useState} from "react";
 import NewsCard from "./NewsCard.tsx";
 
 export interface BulletPoint {
